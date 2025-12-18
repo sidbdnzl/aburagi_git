@@ -1,0 +1,1333 @@
+@use 'sass:math';
+
+$color-text: #000;
+$color_text2: #fff;
+
+$font-family-base: "Noto Serif JP", "Noto Serif", sans-serif;
+
+$font-size-base: 16px;
+$font-size-Desktop_title: 30px;
+$font-size-Mobile_title: 20px;
+$font-size-mini: 14px;
+
+/* 余白 */
+$space-s: 0.7rem; // 11px
+$space-m: 1rem; // 16px
+$space-l: 1.5rem; // 24px
+
+$breakpoints: (
+    "desktop": 840px,
+    "tablet":760px
+);
+
+$letter-spacings: (
+    normal:0.05em,
+    semiwider:0.1em,
+    wider: 0.3em
+);
+
+@function ls($key) {
+    @return map-get($letter-spacings, $key);
+}
+
+@mixin mq($breakpoint: desktop) {
+    @media (width >=map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+
+@mixin inner($mw: 1050px, $w: 90%) {
+    max-width: $mw;
+    width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: $color-text;
+    font-family: $font-family-base;
+    overflow-x: hidden;
+    background: url(../image/aburagi_Desktop_bg.webp) no-repeat center center/cover;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+/*---------- btn ----------*/
+.btn {
+    margin: 80px 0 250px 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: $font-size-base;
+    font-weight: 600;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 110px;
+        border-bottom: 1px solid $color-text;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 4px;
+    }
+
+    @include mq(desktop) {
+        margin: 0;
+        font-size: 18px;
+        align-items: flex-start;
+
+        &::after {
+            width: 110px;
+            margin-left: 0;
+            margin-right: 0;
+            align-items: center;
+        }
+    }
+
+}
+
+/*---------- header ----------*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include inner();
+    }
+
+    &__logos {
+
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+    }
+
+    &__menu {
+        display: flex;
+        column-gap: 80px;
+        text-align: center;
+    }
+}
+
+.header--light-text a {
+    color: #fff;
+}
+
+.header--light-text .bar {
+    background-color: #fff;
+}
+
+.header__hamburger {
+    width: 30px;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+
+
+    .bar {
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: #000;
+        margin: 8px auto;
+        transition: all 0.1s ease-in-out;
+        border-radius: 20px;
+    }
+
+    &.is-active {
+        .bar:nth-child(1) {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .bar:nth-child(2) {
+            transform: translateY(-5px) rotate(-45deg);
+        }
+    }
+
+    @include mq(tablet) {
+        display: none;
+    }
+}
+
+.gnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #FFEECE;
+    padding: 130px 0 80px 0;
+    text-align: center;
+    transform: translateX(100%);
+    transition: 0.7s;
+    z-index: 1000;
+    overflow-y: auto;
+
+
+    &.is-active {
+        transform: translateX(0);
+    }
+
+    &__item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.4s;
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    &__logo {
+        margin: 35px 0 35px 0;
+    }
+
+    &__name {
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    &__address {
+        font-size: 14px;
+    }
+
+    &.is-active &__item {
+        opacity: 1;
+        transform: none;
+    }
+
+    &.is-active &__item:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    &.is-active &__item:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    &.is-active &__item:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    &.is-active &__item:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    &.is-active &__item:nth-child(5) {
+        transition-delay: 0.5s;
+    }
+}
+
+.gnav2 {
+    display: flex;
+
+    .gnav__list2 {
+        display: none;
+
+        @include mq(tablet) {
+            display: grid;
+            grid-auto-flow: column;
+            column-gap: 30px;
+            font-size: 14px;
+        }
+    }
+}
+
+
+/*---------- お問い合わせ ----------*/
+.inquiry {
+    padding: 100px 0 100px 0;
+    background: url(../image/aburagi_shop.webp) no-repeat center center/cover;
+    color: $color_text2;
+
+    &__inner {
+        @include inner()
+    }
+
+    &__text {
+        font-size: $font-size-mini;
+        text-align: center;
+        line-height: 40px;
+        letter-spacing: ls(semiwider);
+
+        @include mq(desktop) {
+            .mb {
+                display: none;
+            }
+        }
+    }
+
+    &__data {
+        margin-top: 20px;
+        text-align: center;
+        font-size: $font-size-mini;
+        font-weight: bold;
+        line-height: 30px;
+    }
+}
+
+/*---------- footer ----------*/
+.footer {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 50px 0 40px 0;
+
+    @include mq(tablet) {
+        max-width: 600px;
+    }
+
+    @include mq(desktop) {
+        max-width: 100%;
+    }
+
+    &__inner {
+        @include inner();
+    }
+
+    &__unit {
+        @include mq(desktop) {
+            margin: 30px 0;
+            display: grid;
+            grid-auto-flow: column;
+            align-items: start;
+        }
+    }
+
+    &__title {
+        margin-bottom: 5px;
+        font-size: $font-size-base;
+        font-weight: 600;
+    }
+
+    &__logo {
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include mq(tablet) {
+            max-width: 600px;
+        }
+
+        @include mq(desktop) {
+            margin-right: auto;
+            margin-left: 0;
+            max-width: 400px;
+        }
+    }
+
+    &__nav {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        gap: 30px;
+
+        @include mq(tablet) {
+            max-width: 450px;
+        }
+
+        @include mq(desktop) {
+            margin-right: 90px;
+            max-width: 300px;
+        }
+    }
+
+    &__item {
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        margin: 40px 0 60px 0;
+
+        @include mq(desktop) {
+            margin-top: 0;
+        }
+    }
+}
+
+
+/* ---------- index.html ---------- */
+/*---------- firstview ----------*/
+.mainvisual {
+    height: 100vh;
+    background: url(../image/aburagi_main_bg.webp) no-repeat center top/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__inner {
+        @include inner ();
+
+    }
+
+    &__logo {
+        text-align: center;
+        transform: translateY(-20px); // マイナス方向＝上に移動
+    }
+}
+
+/*---------- 油木米精米所 ----------*/
+.aburagi {
+    width: 100%;
+    height: 100vh;
+    background: url(../image/aburagi_bg.webp) no-repeat 30% center/cover;
+    color: $color_text2;
+
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        padding-top: 150px;
+        font-size: $font-size-Mobile_title;
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: ls(normal);
+
+        @include mq {
+            padding-top: 0;
+            text-align: left;
+            writing-mode: vertical-rl;
+            font-size: $font-size-Desktop_title;
+        }
+    }
+
+    &__text {
+        padding-bottom: 110px;
+        font-size: $font-size-base;
+        text-align: center;
+        line-height: 40px;
+        letter-spacing: ls(semiwider);
+
+        @include mq(desktop) {
+            padding: 0;
+            text-align: left;
+            writing-mode: vertical-rl;
+            font-size: 18px;
+            font-weight: 200;
+            line-height: 60px;
+        }
+    }
+
+    &__explanation {
+        @include mq(desktop) {
+            padding-top: 280px;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 30px;
+        }
+    }
+
+
+}
+
+/*---------- お知らせ ----------*/
+.news {
+    @include mq(desktop) {
+        margin-top: 20px;
+    }
+
+    &__inner {
+        @include inner();
+    }
+
+    &__unit {
+        @include mq(desktop) {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: space-between;
+        }
+    }
+
+
+    &__title {
+        margin-top: 200px;
+        text-align: center;
+
+        h2 {
+            font-size: $font-size-Mobile_title;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 50px;
+            font-size: $font-size-mini;
+            line-height: 30px;
+            letter-spacing: ls(wider);
+        }
+
+        @include mq(desktop) {
+
+            h2 {
+                text-align: left;
+                font-size: $font-size-Desktop_title;
+            }
+
+            p {
+                text-align: left;
+            }
+        }
+    }
+
+    &__list {
+        max-width: 300px;
+        margin: 0 auto;
+
+        @include mq(desktop) {
+            max-width: 100%;
+            margin-top: 240px;
+        }
+    }
+
+
+    &__post {
+        margin-bottom: 50px;
+
+        @include mq(desktop) {
+            font-size: 18px;
+            display: flex;
+        }
+    }
+
+    &__date {
+        margin-bottom: $space-s;
+        font-weight: bold;
+
+        @include mq(desktop) {
+            margin-right: 100px;
+        }
+    }
+
+    &__btn {
+        display: block;
+        text-align: center;
+        align-items: center;
+
+        &::after {
+            width: 110px;
+        }
+
+        @include mq(desktop) {
+            text-align: center;
+            align-items: center;
+            width: 110px;
+
+            &::after {
+                width: 120px;
+            }
+        }
+    }
+}
+
+/*---------- こだわりの精米 ----------*/
+.seimai {
+    text-align: center;
+
+    @include mq(desktop) {
+        margin-top: 300px;
+        text-align: left;
+    }
+
+    &__inner {
+        @include inner();
+
+        @include mq(desktop) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &__title {
+
+        h2 {
+            font-size: $font-size-Mobile_title;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 50px;
+            font-size: $font-size-mini;
+            line-height: 30px;
+            letter-spacing: ls(wider);
+        }
+
+        @include mq(desktop) {
+            text-align: left;
+
+            h2 {
+                font-size: $font-size-Desktop_title;
+            }
+        }
+    }
+
+    &__text {
+        margin-bottom: 30px;
+        font-size: $font-size-base;
+        text-align: center;
+        line-height: 40px;
+        letter-spacing: ls(normal);
+
+        @include mq(desktop) {
+            text-align: left;
+
+            .mb {
+                display: none;
+            }
+        }
+    }
+
+    &__image {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 400px;
+        height: auto;
+        border-radius: 20px;
+
+        @include mq(desktop) {
+            width: 550px;
+        }
+    }
+
+    &__btn {
+        align-items: center;
+
+        &::after {
+            width: 110px;
+        }
+
+        @include mq(desktop) {
+            text-align: center;
+            align-items: center;
+            width: 110px;
+
+            &::after {
+                width: 120px;
+            }
+        }
+    }
+}
+
+/*---------- 取扱銘柄 ----------*/
+.kome {
+    // margin-top: 300px;
+    text-align: center;
+
+    @include mq(desktop) {
+        margin-top: 300px;
+        text-align: left;
+    }
+
+    &__inner {
+        @include inner();
+
+        @include mq(desktop) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &__title {
+
+        h2 {
+            font-size: $font-size-Mobile_title;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 50px;
+            font-size: $font-size-mini;
+            line-height: 30px;
+            letter-spacing: ls(wider);
+        }
+
+
+        @include mq(desktop) {
+            text-align: left;
+
+            h2 {
+                font-size: $font-size-Desktop_title;
+            }
+        }
+    }
+
+
+    &__text {
+        margin-bottom: 30px;
+        font-size: $font-size-base;
+        text-align: center;
+        line-height: 40px;
+        letter-spacing: ls(normal);
+
+        @include mq(desktop) {
+            text-align: left;
+
+            .mb {
+                display: none;
+            }
+        }
+    }
+
+    &__btn {
+        align-items: center;
+
+        &::after {
+            width: 170px;
+        }
+
+        @include mq(desktop) {
+            text-align: center;
+            align-items: center;
+            width: 180px;
+
+            &::after {
+                width: 190px;
+            }
+        }
+    }
+
+    &__scroller {
+        overflow: hidden
+    }
+}
+
+/*---------- 店舗情報 ----------*/
+.store {
+    max-width: 100%;
+    // margin-top: 300px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include mq(desktop) {
+        margin-top: 300px;
+        max-width: 100%;
+        text-align: left;
+    }
+
+    &__inner {
+        @include inner();
+
+        @include mq(desktop) {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: space-between;
+        }
+    }
+
+    &__unit {
+        margin-left: auto;
+        margin-right: auto;
+
+        @include mq(desktop) {
+            width: 600px;
+        }
+    }
+
+    &__title {
+        text-align: center;
+
+        h2 {
+            font-size: $font-size-Mobile_title;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 50px;
+            font-size: $font-size-mini;
+            line-height: 30px;
+            letter-spacing: ls(wider);
+        }
+
+        @include mq {
+            h2 {
+                font-size: $font-size-Desktop_title;
+            }
+        }
+    }
+
+    &__map {
+        width: 100%;
+
+        iframe {
+            width: 100%;
+            height: 360px;
+            border: none;
+        }
+    }
+}
+
+.info {
+
+    &__list {
+        margin: 70px 0 40px 0;
+        display: grid;
+        justify-content: space-between;
+    }
+
+    &__row {
+        display: flex;
+        text-align: left;
+        align-items: center;
+        margin-bottom: 35px;
+    }
+
+    &__row1 {
+        @include mq(tablet) {
+            br {
+                display: none;
+            }
+        }
+    }
+
+    &__term {
+        width: 150px;
+    }
+
+    &__desc {
+        line-height: 2.5;
+    }
+}
+
+/* ---------- お知らせページ ----------*/
+.newspage {
+
+    @include mq(desktop) {
+        margin-top: 20px;
+    }
+
+    &__inner {
+        @include inner();
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    &__unit {
+        @include mq(desktop) {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: space-between;
+        }
+    }
+
+    &__title {
+        margin-top: 180px;
+        text-align: center;
+
+        h2 {
+            font-size: $font-size-Mobile_title;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 50px;
+            font-size: $font-size-mini;
+            line-height: 30px;
+            letter-spacing: ls(wider);
+        }
+
+        @include mq(desktop) {
+            margin-top: 250px;
+
+            h2 {
+                font-size: $font-size-Desktop_title;
+            }
+        }
+    }
+
+    &__list {
+        margin: 0 auto 150px auto;
+
+        @include mq(tablet) {
+            max-width: 550px;
+            margin-top: 150px;
+        }
+    }
+
+    /* ★ここが重要：日付＋タイトルを横並び */
+    &__post {
+        margin-bottom: 40px;
+
+        @include mq(tablet) {
+            display: flex;
+            align-items: flex-start;
+            gap: 80px;
+            /* ← 日付とタイトルの間のスペース */
+            font-size: 18px;
+        }
+    }
+
+    /* 左側の日付 */
+    &__date {
+        margin-bottom: 8px;
+        font-weight: bold;
+        white-space: nowrap;
+        /* ← 日付の折り返し防止 */
+
+        @include mq(tablet) {
+            margin: 0;
+        }
+    }
+
+    /* 右側のタイトル */
+    &__titlelink {
+        display: block;
+        text-decoration: none;
+        color: #000;
+
+        @include mq(tablet) {
+            flex: 1;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+
+    &__btn {
+        font-size: $font-family-base;
+    }
+}
+
+// .newspage {
+
+//     @include mq(desktop) {
+//         margin-top: 20px;
+//     }
+
+//     &__inner {
+//         @include inner();
+//     }
+
+//     &__unit {
+//         @include mq(desktop) {
+//             display: grid;
+//             grid-auto-flow: column;
+//             justify-content: space-between;
+//         }
+//     }
+
+
+//     &__title {
+//         margin-top: 180px;
+//         text-align: center;
+
+//         h2 {
+//             font-size: $font-size-Mobile_title;
+//             font-weight: bold;
+//         }
+
+//         p {
+//             margin-bottom: 50px;
+//             font-size: $font-size-mini;
+//             line-height: 30px;
+//             letter-spacing: ls(wider);
+//         }
+
+//         @include mq(desktop) {
+//             margin-top: 250px;
+
+//             h2 {
+//                 font-size: $font-size-Desktop_title;
+//             }
+//         }
+//     }
+
+//     &__list {
+//         max-width: 300px;
+//         margin: 0 auto 150px auto;
+
+//         @include mq(desktop) {
+//             max-width: 550px;
+//             margin-top: 150px;
+//         }
+//     }
+
+
+//     &__post {
+//         margin-bottom: 80px;
+
+//         @include mq(desktop) {
+//             font-size: 18px;
+//             display: flex;
+//         }
+//     }
+
+//     &__date {
+//         margin-bottom: $space-s;
+//         font-weight: bold;
+
+//         @include mq(desktop) {
+//             margin-right: 100px;
+//         }
+//     }
+
+//     &__btn {
+//         font-size: $font-family-base;
+//     }
+// }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0 100px 0;
+
+    &__page {
+        color: #555;
+        text-decoration: none;
+        padding-bottom: 4px;
+        transition: 0.2s ease;
+        border-bottom: 1px solid transparent;
+
+        &:hover {
+            color: #000;
+            border-bottom: 1px solid #aaa;
+        }
+
+        &.active {
+            color: #000;
+            border-bottom: 1px solid #000;
+        }
+
+    }
+}
+
+/*---------- 取扱銘柄ページ ----------*/
+.komepage {
+    max-width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        margin-top: 180px;
+
+        @include mq(desktop) {
+            margin-top: 250px;
+        }
+
+        h2 {
+            font-size: $font-size-Mobile_title;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 50px;
+            font-size: $font-size-mini;
+            line-height: 30px;
+            letter-spacing: ls(wider);
+        }
+
+        @include mq(tablet) {
+            p {
+                font-size: $font-size-base;
+            }
+
+            .mb {
+                display: none;
+            }
+        }
+
+        @include mq(desktop) {
+            h2 {
+                font-size: $font-size-Desktop_title;
+            }
+
+            p {
+                margin-bottom: 80px;
+            }
+        }
+    }
+
+    &__listtitle {
+        margin-top: 130px;
+
+        h2 {
+            font-size: $font-size-Mobile_title;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: $font-size-mini;
+            line-height: 30px;
+            letter-spacing: ls(wider);
+        }
+
+        @include mq(desktop) {
+            margin-top: 250px;
+
+            h2 {
+                font-size: $font-size-Desktop_title;
+            }
+
+
+        }
+    }
+
+    &__text {
+        margin: 30px 0 70px 0;
+        font-size: $font-size-mini;
+
+        @include mq(desktop) {
+
+            font-size: $font-size-base;
+
+            .mb {
+                display: none;
+            }
+        }
+    }
+
+    &__map {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include mq(tablet) {
+            width: 95%;
+        }
+
+        @include mq(desktop) {
+            width: 70%;
+        }
+    }
+
+    &__list {
+        margin-bottom: 120px;
+    }
+
+    &__units {
+        @include mq(tablet) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include mq(desktop) {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &__unit {
+        margin-bottom: 70px;
+
+        img {
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}
+
+/*---------- こだわりの精米ページ ----------*/
+.seimaitop {
+    margin-bottom: 200px;
+    text-align: center;
+
+    @include mq(desktop) {
+        margin-bottom: 250px;
+
+        .mb {
+            display: none;
+        }
+    }
+
+    &__inner {
+        @include inner();
+
+        margin-top: 200px;
+    }
+
+    &__title {
+
+        h2 {
+            font-size: $font-size-Mobile_title;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 50px;
+            font-size: $font-size-mini;
+            line-height: 30px;
+            letter-spacing: ls(wider);
+        }
+
+        @include mq(desktop) {
+            margin-top: 250px;
+
+            h2 {
+                font-size: $font-size-Desktop_title;
+            }
+        }
+    }
+
+    &__text {
+        line-height: 2.7;
+    }
+}
+
+.workshop {
+    @include mq(tablet) {
+        .mb {
+            display: none;
+        }
+    }
+
+    &__inner {
+        @include inner();
+    }
+
+    &__unit {
+        margin-bottom: 150px;
+        display: block;
+        text-align: center;
+
+        &:nth-child(even) {
+            img {
+                order: 2;
+            }
+
+            p {
+                order: 1;
+            }
+        }
+
+        @include mq(desktop) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            text-align: left;
+            gap: 50px;
+        }
+
+        img {
+            margin-bottom: 30px;
+            width: 500px;
+            border-radius: 40px;
+        }
+
+        p {
+            font-size: $font-size-mini;
+
+            @include mq(tablet) {
+                font-size: $font-size-base;
+            }
+
+            @include mq(desktop) {
+                line-height: 3;
+            }
+        }
+    }
+}
+
+
+/*---------- お知らせシングルページ ----------*/
+.single {
+    margin: 170px 0 100px 0;
+
+    @include mq(tablet) {
+        margin-top: 200px;
+    }
+
+    &__inner {
+        @include inner();
+        max-width: 80%;
+    }
+
+    h1 {
+        font-size: $font-size-Mobile_title;
+        font-weight: 600;
+        margin-bottom: 50px;
+
+        @include mq(desktop) {
+            font-size: $font-size-Mobile_title;
+            font-weight: bold;
+        }
+    }
+
+    &__btn {
+
+
+        &::after {
+            width: 130px;
+        }
+
+        @include mq(desktop) {
+            text-align: center;
+            align-items: center;
+            width: 180px;
+
+            &::after {
+                width: 130px;
+            }
+        }
+    }
+}
+
+/*---------- JavaScript ----------*/
+.white {
+    color: #fff;
+}
+
+.fadein {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fadein.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ナビゲーションメニュー（上部） */
+.gnav__list2 a.is-white {
+    color: #fff !important;
+}
+
+/* 工房ロゴ文字画像を白にしたい場合 */
+.header__koubouimg.is-white {
+    filter: brightness(10);
+}
+
+/* ハンバーガーの色変更 */
+#hamburger.is-white .bar {
+    background-color: #fff;
+}
+
+/* ロゴ画像を白く反転 */
+.header__koubouimg.is-white {
+    filter: brightness(0) invert(1);
+    transition: 0.1s;
+}

@@ -1,0 +1,1125 @@
+@charset "UTF-8";
+/* 余白 */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #000;
+  font-family: "Noto Serif JP", "Noto Serif", sans-serif;
+  overflow-x: hidden;
+  background: url(../image/aburagi_Desktop_bg.webp) no-repeat center center/cover;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/*---------- btn ----------*/
+.btn {
+  margin: 80px 0 250px 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+}
+.btn::after {
+  content: "";
+  display: block;
+  width: 110px;
+  border-bottom: 1px solid #000;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px;
+}
+@media (width >= 840px) {
+  .btn {
+    margin: 0;
+    font-size: 18px;
+    align-items: flex-start;
+  }
+  .btn::after {
+    width: 110px;
+    margin-left: 0;
+    margin-right: 0;
+    align-items: center;
+  }
+}
+
+/*---------- header ----------*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header__logos {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+.header__menu {
+  display: flex;
+  -moz-column-gap: 80px;
+       column-gap: 80px;
+  text-align: center;
+}
+
+.header--light-text a {
+  color: #fff;
+}
+
+.header--light-text .bar {
+  background-color: #fff;
+}
+
+.header__hamburger {
+  width: 30px;
+  cursor: pointer;
+  z-index: 1001;
+  position: relative;
+}
+.header__hamburger .bar {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: #000;
+  margin: 8px auto;
+  transition: all 0.1s ease-in-out;
+  border-radius: 20px;
+}
+.header__hamburger.is-active .bar:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+.header__hamburger.is-active .bar:nth-child(2) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+@media (width >= 760px) {
+  .header__hamburger {
+    display: none;
+  }
+}
+
+.gnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FFEECE;
+  padding: 130px 0 80px 0;
+  text-align: center;
+  transform: translateX(100%);
+  transition: 0.7s;
+  z-index: 1000;
+  overflow-y: auto;
+}
+.gnav.is-active {
+  transform: translateX(0);
+}
+.gnav__item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.4s;
+  display: block;
+  margin-bottom: 2rem;
+}
+.gnav__logo {
+  margin: 35px 0 35px 0;
+}
+.gnav__name {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.gnav__address {
+  font-size: 14px;
+}
+.gnav.is-active .gnav__item {
+  opacity: 1;
+  transform: none;
+}
+.gnav.is-active .gnav__item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.gnav.is-active .gnav__item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.gnav.is-active .gnav__item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.gnav.is-active .gnav__item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.gnav.is-active .gnav__item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.gnav2 {
+  display: flex;
+}
+.gnav2 .gnav__list2 {
+  display: none;
+}
+@media (width >= 760px) {
+  .gnav2 .gnav__list2 {
+    display: grid;
+    grid-auto-flow: column;
+    -moz-column-gap: 30px;
+         column-gap: 30px;
+    font-size: 14px;
+  }
+}
+
+/*---------- お問い合わせ ----------*/
+.inquiry {
+  padding: 100px 0 100px 0;
+  background: url(../image/aburagi_shop.webp) no-repeat center center/cover;
+  color: #fff;
+}
+.inquiry__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.inquiry__text {
+  font-size: 14px;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 0.1em;
+}
+@media (width >= 840px) {
+  .inquiry__text .mb {
+    display: none;
+  }
+}
+.inquiry__data {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+/*---------- footer ----------*/
+.footer {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 50px 0 40px 0;
+}
+@media (width >= 760px) {
+  .footer {
+    max-width: 600px;
+  }
+}
+@media (width >= 840px) {
+  .footer {
+    max-width: 100%;
+  }
+}
+.footer__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (width >= 840px) {
+  .footer__unit {
+    margin: 30px 0;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: start;
+  }
+}
+.footer__title {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.footer__logo {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (width >= 760px) {
+  .footer__logo {
+    max-width: 600px;
+  }
+}
+@media (width >= 840px) {
+  .footer__logo {
+    margin-right: auto;
+    margin-left: 0;
+    max-width: 400px;
+  }
+}
+.footer__nav {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  gap: 30px;
+}
+@media (width >= 760px) {
+  .footer__nav {
+    max-width: 450px;
+  }
+}
+@media (width >= 840px) {
+  .footer__nav {
+    margin-right: 90px;
+    max-width: 300px;
+  }
+}
+.footer__item {
+  margin-bottom: 20px;
+}
+.footer__text {
+  margin: 40px 0 60px 0;
+}
+@media (width >= 840px) {
+  .footer__text {
+    margin-top: 0;
+  }
+}
+
+/* ---------- index.html ---------- */
+/*---------- firstview ----------*/
+.mainvisual {
+  height: 100vh;
+  background: url(../image/aburagi_main_bg.webp) no-repeat center top/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainvisual__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mainvisual__logo {
+  text-align: center;
+  transform: translateY(-20px);
+}
+
+/*---------- 油木米精米所 ----------*/
+.aburagi {
+  width: 100%;
+  height: 100vh;
+  background: url(../image/aburagi_bg.webp) no-repeat 30% center/cover;
+  color: #fff;
+}
+.aburagi__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.aburagi__title {
+  margin-bottom: 20px;
+  padding-top: 150px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+@media (width >= 840px) {
+  .aburagi__title {
+    padding-top: 0;
+    text-align: left;
+    writing-mode: vertical-rl;
+    font-size: 30px;
+  }
+}
+.aburagi__text {
+  padding-bottom: 110px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 0.1em;
+}
+@media (width >= 840px) {
+  .aburagi__text {
+    padding: 0;
+    text-align: left;
+    writing-mode: vertical-rl;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 60px;
+  }
+}
+@media (width >= 840px) {
+  .aburagi__explanation {
+    padding-top: 280px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px;
+  }
+}
+
+/*---------- お知らせ ----------*/
+@media (width >= 840px) {
+  .news {
+    margin-top: 20px;
+  }
+}
+.news__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (width >= 840px) {
+  .news__unit {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
+}
+.news__title {
+  margin-top: 200px;
+  text-align: center;
+}
+.news__title h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.news__title p {
+  margin-bottom: 50px;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 0.3em;
+}
+@media (width >= 840px) {
+  .news__title h2 {
+    text-align: left;
+    font-size: 30px;
+  }
+  .news__title p {
+    text-align: left;
+  }
+}
+.news__list {
+  max-width: 300px;
+  margin: 0 auto;
+}
+@media (width >= 840px) {
+  .news__list {
+    max-width: 100%;
+    margin-top: 240px;
+  }
+}
+.news__post {
+  margin-bottom: 50px;
+}
+@media (width >= 840px) {
+  .news__post {
+    font-size: 18px;
+    display: flex;
+  }
+}
+.news__date {
+  margin-bottom: 0.7rem;
+  font-weight: bold;
+}
+@media (width >= 840px) {
+  .news__date {
+    margin-right: 100px;
+  }
+}
+.news__btn {
+  display: block;
+  text-align: center;
+  align-items: center;
+}
+.news__btn::after {
+  width: 110px;
+}
+@media (width >= 840px) {
+  .news__btn {
+    text-align: center;
+    align-items: center;
+    width: 110px;
+  }
+  .news__btn::after {
+    width: 120px;
+  }
+}
+
+/*---------- こだわりの精米 ----------*/
+.seimai {
+  text-align: center;
+}
+@media (width >= 840px) {
+  .seimai {
+    margin-top: 300px;
+    text-align: left;
+  }
+}
+.seimai__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (width >= 840px) {
+  .seimai__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.seimai__title h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.seimai__title p {
+  margin-bottom: 50px;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 0.3em;
+}
+@media (width >= 840px) {
+  .seimai__title {
+    text-align: left;
+  }
+  .seimai__title h2 {
+    font-size: 30px;
+  }
+}
+.seimai__text {
+  margin-bottom: 30px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+}
+@media (width >= 840px) {
+  .seimai__text {
+    text-align: left;
+  }
+  .seimai__text .mb {
+    display: none;
+  }
+}
+.seimai__image {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 400px;
+  height: auto;
+  border-radius: 20px;
+}
+@media (width >= 840px) {
+  .seimai__image {
+    width: 550px;
+  }
+}
+.seimai__btn {
+  align-items: center;
+}
+.seimai__btn::after {
+  width: 110px;
+}
+@media (width >= 840px) {
+  .seimai__btn {
+    text-align: center;
+    align-items: center;
+    width: 110px;
+  }
+  .seimai__btn::after {
+    width: 120px;
+  }
+}
+
+/*---------- 取扱銘柄 ----------*/
+.kome {
+  text-align: center;
+}
+@media (width >= 840px) {
+  .kome {
+    margin-top: 300px;
+    text-align: left;
+  }
+}
+.kome__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (width >= 840px) {
+  .kome__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.kome__title h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.kome__title p {
+  margin-bottom: 50px;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 0.3em;
+}
+@media (width >= 840px) {
+  .kome__title {
+    text-align: left;
+  }
+  .kome__title h2 {
+    font-size: 30px;
+  }
+}
+.kome__text {
+  margin-bottom: 30px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+}
+@media (width >= 840px) {
+  .kome__text {
+    text-align: left;
+  }
+  .kome__text .mb {
+    display: none;
+  }
+}
+.kome__btn {
+  align-items: center;
+}
+.kome__btn::after {
+  width: 170px;
+}
+@media (width >= 840px) {
+  .kome__btn {
+    text-align: center;
+    align-items: center;
+    width: 180px;
+  }
+  .kome__btn::after {
+    width: 190px;
+  }
+}
+.kome__scroller {
+  overflow: hidden;
+}
+
+/*---------- 店舗情報 ----------*/
+.store {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (width >= 840px) {
+  .store {
+    margin-top: 300px;
+    max-width: 100%;
+    text-align: left;
+  }
+}
+.store__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (width >= 840px) {
+  .store__inner {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
+}
+.store__unit {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (width >= 840px) {
+  .store__unit {
+    width: 600px;
+  }
+}
+.store__title {
+  text-align: center;
+}
+.store__title h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.store__title p {
+  margin-bottom: 50px;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 0.3em;
+}
+@media (width >= 840px) {
+  .store__title h2 {
+    font-size: 30px;
+  }
+}
+.store__map {
+  width: 100%;
+}
+.store__map iframe {
+  width: 100%;
+  height: 360px;
+  border: none;
+}
+
+.info__list {
+  margin: 70px 0 40px 0;
+  display: grid;
+  justify-content: space-between;
+}
+.info__row {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  margin-bottom: 35px;
+}
+@media (width >= 760px) {
+  .info__row1 br {
+    display: none;
+  }
+}
+.info__term {
+  width: 150px;
+}
+.info__desc {
+  line-height: 2.5;
+}
+
+/* ---------- お知らせページ ----------*/
+.newspage {
+  /* ★ここが重要：日付＋タイトルを横並び */
+  /* 左側の日付 */
+  /* 右側のタイトル */
+}
+@media (width >= 840px) {
+  .newspage {
+    margin-top: 20px;
+  }
+}
+.newspage__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (width >= 840px) {
+  .newspage__unit {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
+}
+.newspage__title {
+  margin-top: 180px;
+  text-align: center;
+}
+.newspage__title h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.newspage__title p {
+  margin-bottom: 50px;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 0.3em;
+}
+@media (width >= 840px) {
+  .newspage__title {
+    margin-top: 250px;
+  }
+  .newspage__title h2 {
+    font-size: 30px;
+  }
+}
+.newspage__list {
+  margin: 0 auto 150px auto;
+}
+@media (width >= 760px) {
+  .newspage__list {
+    max-width: 550px;
+    margin-top: 150px;
+  }
+}
+.newspage__post {
+  margin-bottom: 40px;
+}
+@media (width >= 760px) {
+  .newspage__post {
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+    /* ← 日付とタイトルの間のスペース */
+    font-size: 18px;
+  }
+}
+.newspage__date {
+  margin-bottom: 8px;
+  font-weight: bold;
+  white-space: nowrap;
+  /* ← 日付の折り返し防止 */
+}
+@media (width >= 760px) {
+  .newspage__date {
+    margin: 0;
+  }
+}
+.newspage__titlelink {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+@media (width >= 760px) {
+  .newspage__titlelink {
+    flex: 1;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+.newspage__btn {
+  font-size: "Noto Serif JP", "Noto Serif", sans-serif;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0 100px 0;
+}
+.pagination__page {
+  color: #555;
+  text-decoration: none;
+  padding-bottom: 4px;
+  transition: 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+.pagination__page:hover {
+  color: #000;
+  border-bottom: 1px solid #aaa;
+}
+.pagination__page.active {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+
+/*---------- 取扱銘柄ページ ----------*/
+.komepage {
+  max-width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.komepage__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.komepage__title {
+  margin-top: 180px;
+}
+@media (width >= 840px) {
+  .komepage__title {
+    margin-top: 250px;
+  }
+}
+.komepage__title h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.komepage__title p {
+  margin-bottom: 50px;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 0.3em;
+}
+@media (width >= 760px) {
+  .komepage__title p {
+    font-size: 16px;
+  }
+  .komepage__title .mb {
+    display: none;
+  }
+}
+@media (width >= 840px) {
+  .komepage__title h2 {
+    font-size: 30px;
+  }
+  .komepage__title p {
+    margin-bottom: 80px;
+  }
+}
+.komepage__listtitle {
+  margin-top: 130px;
+}
+.komepage__listtitle h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.komepage__listtitle p {
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 0.3em;
+}
+@media (width >= 840px) {
+  .komepage__listtitle {
+    margin-top: 250px;
+  }
+  .komepage__listtitle h2 {
+    font-size: 30px;
+  }
+}
+.komepage__text {
+  margin: 30px 0 70px 0;
+  font-size: 14px;
+}
+@media (width >= 840px) {
+  .komepage__text {
+    font-size: 16px;
+  }
+  .komepage__text .mb {
+    display: none;
+  }
+}
+.komepage__map {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (width >= 760px) {
+  .komepage__map {
+    width: 95%;
+  }
+}
+@media (width >= 840px) {
+  .komepage__map {
+    width: 70%;
+  }
+}
+.komepage__list {
+  margin-bottom: 120px;
+}
+@media (width >= 760px) {
+  .komepage__units {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (width >= 840px) {
+  .komepage__units {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.komepage__unit {
+  margin-bottom: 70px;
+}
+.komepage__unit img {
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+.komepage__unit p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/*---------- こだわりの精米ページ ----------*/
+.seimaitop {
+  margin-bottom: 200px;
+  text-align: center;
+}
+@media (width >= 840px) {
+  .seimaitop {
+    margin-bottom: 250px;
+  }
+  .seimaitop .mb {
+    display: none;
+  }
+}
+.seimaitop__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+}
+.seimaitop__title h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.seimaitop__title p {
+  margin-bottom: 50px;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 0.3em;
+}
+@media (width >= 840px) {
+  .seimaitop__title {
+    margin-top: 250px;
+  }
+  .seimaitop__title h2 {
+    font-size: 30px;
+  }
+}
+.seimaitop__text {
+  line-height: 2.7;
+}
+
+@media (width >= 760px) {
+  .workshop .mb {
+    display: none;
+  }
+}
+.workshop__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.workshop__unit {
+  margin-bottom: 150px;
+  display: block;
+  text-align: center;
+}
+.workshop__unit:nth-child(even) img {
+  order: 2;
+}
+.workshop__unit:nth-child(even) p {
+  order: 1;
+}
+@media (width >= 840px) {
+  .workshop__unit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: left;
+    gap: 50px;
+  }
+}
+.workshop__unit img {
+  margin-bottom: 30px;
+  width: 500px;
+  border-radius: 40px;
+}
+.workshop__unit p {
+  font-size: 14px;
+}
+@media (width >= 760px) {
+  .workshop__unit p {
+    font-size: 16px;
+  }
+}
+@media (width >= 840px) {
+  .workshop__unit p {
+    line-height: 3;
+  }
+}
+
+/*---------- お知らせシングルページ ----------*/
+.single {
+  margin: 170px 0 100px 0;
+}
+@media (width >= 760px) {
+  .single {
+    margin-top: 200px;
+  }
+}
+.single__inner {
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
+.single h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+@media (width >= 840px) {
+  .single h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+.single__btn::after {
+  width: 130px;
+}
+@media (width >= 840px) {
+  .single__btn {
+    text-align: center;
+    align-items: center;
+    width: 180px;
+  }
+  .single__btn::after {
+    width: 130px;
+  }
+}
+
+/*---------- JavaScript ----------*/
+.white {
+  color: #fff;
+}
+
+.fadein {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fadein.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ナビゲーションメニュー（上部） */
+.gnav__list2 a.is-white {
+  color: #fff !important;
+}
+
+/* 工房ロゴ文字画像を白にしたい場合 */
+.header__koubouimg.is-white {
+  filter: brightness(10);
+}
+
+/* ハンバーガーの色変更 */
+#hamburger.is-white .bar {
+  background-color: #fff;
+}
+
+/* ロゴ画像を白く反転 */
+.header__koubouimg.is-white {
+  filter: brightness(0) invert(1);
+  transition: 0.1s;
+}
+/*# sourceMappingURL=style.css.map */

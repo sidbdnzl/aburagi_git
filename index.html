@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logos">
+                <img src="./image/aburagi_logo.webp" alt="米搗き工房のイラストロゴ" width="50" height="50" decoding="async"
+                    fetchpriority="high">
+                <img class="header__koubouimg" src="./image/aburagi_logo_name.webp" alt="米搗き工房のロゴ" width="170"
+                    height="120" decoding="async" fetchpriority="high">
+            </div>
+
+            <div class="header__menu">
+                <nav class="gnav2">
+                    <ul class="gnav__list2">
+                        <li class="gnav__item2"><a href="./index.html">HOME</a></li>
+                        <li class="gnav__item2"><a href="./news.html">お知らせ</a></li>
+                        <li class="gnav__item2"><a href="./seimai.html">こだわりの精米</a></li>
+                        <li class="gnav__item2"><a href="./kome.html">取り扱い銘柄</a></li>
+                        <li class="gnav__item2"><a href="#">店舗情報</a></li>
+                    </ul>
+                </nav>
+
+                <button type="button" class="header__hamburger" id="hamburger" aria-label="メニューを開閉">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+                <nav class="gnav" id="menu">
+                    <ul class="gnav__list">
+                        <li class="gnav__item"><a href="./index.html">HOME</a></li>
+                        <li class="gnav__item"><a href="./news.html">お知らせ</a></li>
+                        <li class="gnav__item"><a href="./seimai.html">こだわりの精米</a></li>
+                        <li class="gnav__item"><a href="./kome.html">取り扱い銘柄</a></li>
+                        <li class="gnav__item"><a href="#">店舗情報</a></li>
+                    </ul>
+                    <ul class="gnav__shop">
+                        <img src="./image/main_logo.webp" alt="お店のロゴ" class="gnav__logo" width="99" height="416"
+                            decoding="async">
+                        <div class="gnav__shoptext">
+                            <p class="gnav__name">米搗き工房　油木米販売所</p>
+                            <p class="gnav__address">〒448-0037　愛知県刈谷市高倉町4-612</p>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="mainvisual fadein">
+            <div class="mainvisual__inner">
+                <div class="mainvisual__logo">
+                    <img src="./image/main_logo.webp" alt="油木米精米所のロゴ" width="153" height="309" decoding="async"
+                        fetchpriority="high">
+                </div>
+            </div>
+        </section>
+
+        <section class="aburagi fadein" data-midnight="white">
+            <div class="aburagi__inner">
+                <div class="aburagi__explanation">
+                    <h2 class="aburagi__title">油木米精米所</h2>
+                    <p class="aburagi__text">
+                        米搗き工房は、お米の精米所です。<br>厳選した産地銘柄の玄米を、<br>循環式精米機という<br>昔ながらの精米法で丁寧に搗きあげ、<br>店頭にて販売しています。<br>店頭精米で使用する玄米は、<br>特別栽培米を選び、<br>人に優しいお米を<br>安心してお召し上がりいただけるように<br>販売しています。<br>毎日の食卓に、<br>精米したての新鮮なお米を、<br>お届けします。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="news fadein">
+            <div class="news__inner">
+                <div class="news__unit">
+                    <div class="news__title">
+                        <h2>お知らせ</h2>
+                        <p>News</p>
+                    </div>
+
+                    <div class="news__list">
+                        <div class="news__post">
+                            <dl class="news__date">2025.10.20</dl>
+                            <dt class="news__text">Webサイトをリニューアルをしました。</dt>
+                        </div>
+                        <div class="news__post">
+                            <dl class="news__date">2025.10.20</dl>
+                            <dt class="news__text">Webサイトをリニューアルをしました。</dt>
+                        </div>
+                        <div class="news__post">
+                            <dl class="news__date">2025.10.20</dl>
+                            <dt class="news__text">Webサイトをリニューアルをしました。</dt>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn__unit">
+                    <a href="#" class="news__btn btn">お知らせ一覧</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="seimai fadein">
+            <div class="seimai__inner">
+                <div class="seimai__unit">
+                    <div class="seimai__title">
+                        <h2>精米へのこだわり</h2>
+                        <p>The Art of Polishing Rice</p>
+                    </div>
+
+                    <p class="seimai__text">
+                        玄米の鮮度を守ることから、<br class="mb">
+                        私たちの精米は始まります。<br>
+                        低温で大切に保管された玄米を、<br>
+                        昔ながらの循環式精米機で丁寧に搗き上げ、<br>
+                        人に優しく安心して<br class="mb">お召し上がりいただけるような<br>新鮮なお米を、お届けしています。</p>
+                </div>
+
+                <img src="./image/workshop/jyunkan_seimaiki.webp" alt="循環式精米機の写真" class="seimai__image">
+
+                <a href="#" class="seimai__btn btn">精米について</a>
+            </div>
+        </section>
+
+        <section class="kome fadein">
+            <div class="kome__inner">
+                <div class="kome__unit">
+                    <div class="kome__title">
+                        <h2>お米の味わい</h2>
+                        <p>Our Rice Selection</p>
+                    </div>
+                    <p class="kome__text">
+                        育てた人の想いと、土地の風。<br class="mb">
+                        そのすべてが、ひと粒に。<br>
+                        甘みや食感、香りから、<br class="mb">
+                        あなたの一番を見つけてください。
+                    </p>
+                </div>
+                <div class="kome__scroller mySwiper">
+                    <div class="kome__images swiper-wrapper">
+                        <img class="swiper-slide" src="./image/kome/niigata_koshihikari.webp" alt="新潟産コシヒカリのパッケージ画像">
+                        <img class="swiper-slide" src="./image/kome/aichi_koshihikari.webp" alt="愛知県産コシヒカリのパッケージ画像">
+                        <img class="swiper-slide" src="./image/kome/toyama_koshihikari.webp" alt="富山県産コシヒカリのパッケージ画像">
+                        <img class="swiper-slide" src="./image/kome/nagano_koshihikari.webp" alt="長野県産コシヒカリのパッケージ画像">
+                        <img class="swiper-slide" src="./image/kome/uonuma_koshihikari.webp" alt="魚沼産コシヒカリのパッケージ画像">
+                        <img class="swiper-slide" src="./image/kome/toyama_fufufu.webp" alt="富山県産富富富のパッケージ画像">
+                        <img class="swiper-slide" src="./image/kome/aichi_no_kaori.webp" alt="あいちのかおりのパッケージ画像">
+                        <img class="swiper-slide" src="./image/kome/nikomaru.webp" alt="にこまるのパッケージ画像">
+                        <img class="swiper-slide" src="./image/kome/hitomebore.webp" alt="ひとめぼれのパッケージ画像">
+                        <img class="swiper-slide" src="./image/kome/tsuyahime.webp" alt="つや姫のパッケージ画像">
+                    </div>
+                </div>
+                <a href="#" class="kome__btn btn">好みのお米を見つける</a>
+            </div>
+        </section>
+
+        <section class="store fadein">
+            <div class="store__inner">
+                <div class="store__title">
+                    <h2>店舗情報</h2>
+                    <p>Our Store</p>
+                </div>
+                <div class="store__unit">
+                    <div class="store__map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.2471836849595!2d136.995727!3d35.000517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60049d213808942b%3A0x69a2a167b7cb417f!2z5rK55pyo57Gz6LKp5aOy5omA!5e0!3m2!1sja!2sjp!4v1764826596647!5m2!1sja!2sjp"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="store__info">
+                        <div class="info__list">
+                            <dl class="info__row info__row1">
+                                <dt class="info__term">所在地</dt>
+                                <dd class="info__desc">〒448-0037　<br>愛知県刈谷市高倉町4-612</dd>
+                            </dl>
+                            <dl class="info__row">
+                                <dt class="info__term">TEL</dt>
+                                <dd class="info__desc">0566-21-1280</dd>
+                            </dl>
+                            <dl class="info__row">
+                                <dt class="info__term">FAX</dt>
+                                <dd class="info__desc">ktaka802@katch.ne.jp</dd>
+                            </dl>
+                            <dl class="info__row">
+                                <dt class="info__term">営業時間</dt>
+                                <dd class="info__desc">火〜金曜日　9:00 - 19:00<br>土曜日　9:00 - 18:30</dd>
+                            </dl>
+                            <dl class="info__row">
+                                <dt class="info__term">定休日</dt>
+                                <dd class="info__desc">日曜日、月曜日</dd>
+                            </dl>
+                            <dl class="info__row">
+                                <dt class="info__term">駐車場</dt>
+                                <dd class="info__desc">有</dd>
+                            </dl>
+                            <dl class="info__row">
+                                <dt class="info__term">支払い方法</dt>
+                                <dd class="info__desc">現金、PayPay</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="inquiry fadein">
+            <div class="inquiry__inner">
+                <p class="inquiry__text">飲食店様には、それぞれの料理に合うように<br class="mb">
+                    ブレンドしたお米をご提供しています。<br>
+                    冷めても固くならず、<br class="mb">
+                    もちもちとした食感が続く<br class="mb">お弁当向けのお米など、<br>
+                    用途に合わせたご提案が可能です。<br>
+                    詳しくは、下記のメールアドレス、<br class="mb">
+                    またはお電話にてお気軽に<br class="mb">お問い合わせください。</p>
+                <dl class="inquiry__data">
+                    <dt class="inquiry__tel">TEL:0566-21-1280</dt>
+                    <dt class="inquiry__mail">ktaka802@katch.ne.jp</dt>
+                </dl>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__unit">
+                <div class="footer__logo">
+                    <img src="./image/main_logo.webp" alt="油木米精米所" width="93" height="259" decoding="async"
+                        fetchpriority="high">
+                </div>
+
+                <div class="footer__nav">
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="./index.html">HOME</a></li>
+                        <li class="footer__item"><a href="./news.html">お知らせ</a></li>
+                        <li class="footer__item"><a href="./seimai.html">こだわりの精米</a></li>
+                    </ul>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="./kome.html">取り扱い銘柄</a></li>
+                        <li class="footer__item"><a href="#">店舗情報</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__text">
+                    <h2 class="footer__title">
+                        米搗き工房　油木米販売所
+                    </h2>
+                    <p class="footer__address">
+                        〒448-0037<br>愛知県刈谷市高倉町4-612<br>
+                        <a href="#">(Google Maps)</a>
+                    </p>
+                </div>
+            </div>
+            <small class="footer__copy">© 2025 aburagi</small>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/midnight.js/1.0.2/midnight.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
