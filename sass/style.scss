@@ -3,7 +3,7 @@
 $color-text: #000;
 $color_text2: #fff;
 
-$font-family-base: "Noto Serif JP", "Noto Serif", sans-serif;
+$font-family-base: "Noto Serif JP", "Noto Serif", "Hiragino Mincho ProN", sans-serif;
 
 $font-size-base: 16px;
 $font-size-Desktop_title: 30px;
@@ -65,39 +65,19 @@ img {
     vertical-align: bottom;
 }
 
-/*---------- btn ----------*/
 .btn {
     margin: 80px 0 250px 0;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    font-size: $font-size-base;
+    padding-bottom: 5px;
+    display: block;
+    width: fit-content;
+    border-bottom: 1px solid $color-text;
+    margin-left: auto;
+    margin-right: auto;
     font-weight: 600;
-
-    &::after {
-        content: "";
-        display: block;
-        width: 110px;
-        border-bottom: 1px solid $color-text;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 4px;
-    }
 
     @include mq(desktop) {
         margin: 0;
-        font-size: 18px;
-        align-items: flex-start;
-
-        &::after {
-            width: 110px;
-            margin-left: 0;
-            margin-right: 0;
-            align-items: center;
-        }
     }
-
 }
 
 /*---------- header ----------*/
@@ -283,6 +263,10 @@ img {
         font-size: $font-size-mini;
         font-weight: bold;
         line-height: 30px;
+    }
+
+    &__data a {
+        display: block;
     }
 }
 
@@ -521,26 +505,6 @@ img {
             margin-right: 100px;
         }
     }
-
-    &__btn {
-        display: block;
-        text-align: center;
-        align-items: center;
-
-        &::after {
-            width: 110px;
-        }
-
-        @include mq(desktop) {
-            text-align: center;
-            align-items: center;
-            width: 110px;
-
-            &::after {
-                width: 120px;
-            }
-        }
-    }
 }
 
 /*---------- こだわりの精米 ----------*/
@@ -558,6 +522,7 @@ img {
         @include mq(desktop) {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            align-items: center;
         }
     }
 
@@ -610,24 +575,6 @@ img {
 
         @include mq(desktop) {
             width: 550px;
-        }
-    }
-
-    &__btn {
-        align-items: center;
-
-        &::after {
-            width: 110px;
-        }
-
-        @include mq(desktop) {
-            text-align: center;
-            align-items: center;
-            width: 110px;
-
-            &::after {
-                width: 120px;
-            }
         }
     }
 }
@@ -688,24 +635,6 @@ img {
 
             .mb {
                 display: none;
-            }
-        }
-    }
-
-    &__btn {
-        align-items: center;
-
-        &::after {
-            width: 170px;
-        }
-
-        @include mq(desktop) {
-            text-align: center;
-            align-items: center;
-            width: 180px;
-
-            &::after {
-                width: 190px;
             }
         }
     }
@@ -780,6 +709,7 @@ img {
     }
 }
 
+
 .info {
 
     &__list {
@@ -810,6 +740,34 @@ img {
     &__desc {
         line-height: 2.5;
     }
+}
+
+.calendar {
+    width: 100%;
+    margin: 40px auto 70px;
+}
+
+.calendar__inner {
+    @include inner();
+    /* ← 中央揃え＋max-width */
+}
+
+/* アスペクト比ボックス */
+.calendar__frame {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    /* 4:3 の比率 */
+}
+
+/* iframe を中で100%に広げる */
+.calendar__frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 /* ---------- お知らせページ ----------*/
@@ -906,87 +864,14 @@ img {
     }
 
     &__btn {
-        font-size: $font-family-base;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        margin-bottom: 100px;
     }
 }
 
-// .newspage {
 
-//     @include mq(desktop) {
-//         margin-top: 20px;
-//     }
-
-//     &__inner {
-//         @include inner();
-//     }
-
-//     &__unit {
-//         @include mq(desktop) {
-//             display: grid;
-//             grid-auto-flow: column;
-//             justify-content: space-between;
-//         }
-//     }
-
-
-//     &__title {
-//         margin-top: 180px;
-//         text-align: center;
-
-//         h2 {
-//             font-size: $font-size-Mobile_title;
-//             font-weight: bold;
-//         }
-
-//         p {
-//             margin-bottom: 50px;
-//             font-size: $font-size-mini;
-//             line-height: 30px;
-//             letter-spacing: ls(wider);
-//         }
-
-//         @include mq(desktop) {
-//             margin-top: 250px;
-
-//             h2 {
-//                 font-size: $font-size-Desktop_title;
-//             }
-//         }
-//     }
-
-//     &__list {
-//         max-width: 300px;
-//         margin: 0 auto 150px auto;
-
-//         @include mq(desktop) {
-//             max-width: 550px;
-//             margin-top: 150px;
-//         }
-//     }
-
-
-//     &__post {
-//         margin-bottom: 80px;
-
-//         @include mq(desktop) {
-//             font-size: 18px;
-//             display: flex;
-//         }
-//     }
-
-//     &__date {
-//         margin-bottom: $space-s;
-//         font-weight: bold;
-
-//         @include mq(desktop) {
-//             margin-right: 100px;
-//         }
-//     }
-
-//     &__btn {
-//         font-size: $font-family-base;
-//     }
-// }
 
 .pagination {
     display: flex;
@@ -1238,7 +1123,8 @@ img {
         }
 
         p {
-            font-size: $font-size-mini;
+            font-size: $font-size-base;
+            line-height: 2.5;
 
             @include mq(tablet) {
                 font-size: $font-size-base;
@@ -1277,21 +1163,9 @@ img {
     }
 
     &__btn {
-
-
-        &::after {
-            width: 130px;
-        }
-
-        @include mq(desktop) {
-            text-align: center;
-            align-items: center;
-            width: 180px;
-
-            &::after {
-                width: 130px;
-            }
-        }
+        margin-top: 120px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 

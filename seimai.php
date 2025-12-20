@@ -95,23 +95,22 @@ get_header();
     </section>
 
     <section class="inquiry fadein">
-        <div class="inquiry__inner">
-            <p class="inquiry__text">
-                飲食店様には、それぞれの料理に合うように<br class="mb">
-                ブレンドしたお米をご提供しています。<br>
-                冷めても固くならず、<br class="mb">
-                もちもちとした食感が続く<br class="mb">お弁当向けのお米など、<br>
-                用途に合わせたご提案が可能です。<br>
-                詳しくは、下記のメールアドレス、<br class="mb">
-                またはお電話にてお気軽に<br class="mb">お問い合わせください。
-            </p>
-
-            <dl class="inquiry__data">
-                <dt class="inquiry__tel">TEL:0566-21-1280</dt>
-                <dt class="inquiry__mail">ktaka802@katch.ne.jp</dt>
-            </dl>
-        </div>
-    </section>
+                    <div class="inquiry__inner">
+                        <p class="inquiry__text">
+                            飲食店様には、それぞれの料理に合うように<br class="mb">
+                            ブレンドしたお米をご提供しています。<br>
+                            冷めても固くならず、<br class="mb">
+                            もちもちとした食感が続く<br class="mb">お弁当向けのお米など、<br>
+                            用途に合わせたご提案が可能です。<br>
+                            詳しくは、下記のメールアドレス、<br class="mb">
+                            またはお電話にてお気軽に<br class="mb">お問い合わせください。
+                        </p>
+                        <div class="inquiry__data">
+                            <a href="tel:+810566-21-1280"  class="inquiry__tel">TEL:0566-21-1280</a>
+                            <a href="mailto:ktaka802@katch.ne.jp" class="inquiry__mail">ktaka802@katch.ne.jp</a>
+                        </div>
+                    </div>
+            </section>
 
 </main>
 

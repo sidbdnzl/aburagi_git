@@ -53,7 +53,7 @@
                     <li class="gnav__item"><a href="<?php echo home_url('/news'); ?>">お知らせ</a></li>
                     <li class="gnav__item"><a href="<?php echo home_url('/seimai'); ?>">こだわりの精米</a></li>
                     <li class="gnav__item"><a href="<?php echo home_url('/kome'); ?>">取り扱い銘柄</a></li>
-                    <li class="gnav__item"><a href="<?php echo home_url('/store'); ?>">店舗情報</a></li>
+                    <li class="gnav__item"><a href="<?php echo home_url('/'); ?>#store">店舗情報</a></li>
                 </ul>
 
                 <ul class="gnav__shop">

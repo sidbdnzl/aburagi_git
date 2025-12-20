@@ -85,7 +85,9 @@
 
             <img src="<?php echo get_template_directory_uri(); ?>/image/workshop/jyunkan_seimaiki.webp" alt="循環式精米機の写真" class="seimai__image">
 
-            <a href="#" class="seimai__btn btn">精米について</a>
+                <a href="<?php echo home_url('/seimai'); ?>" class="seimai__btn btn">
+                    精米について
+                </a>
         </div>
     </section>
 
@@ -117,7 +119,10 @@
                     <img class="swiper-slide" src="<?php echo get_template_directory_uri(); ?>/image/kome/tsuyahime.webp" alt="つや姫のパッケージ画像">
                 </div>
             </div>
-            <a href="#" class="kome__btn btn">好みのお米を見つける</a>
+
+                <a href="<?php echo home_url('/kome'); ?>" class="kome__btn btn">
+                        好みのお米を見つける
+                    </a>
         </div>
     </section>
 
@@ -168,23 +173,31 @@
         </div>
     </section>
 
-    <section class="inquiry fadein">
-        <div class="inquiry__inner">
-            <p class="inquiry__text">
-                飲食店様には、それぞれの料理に合うように<br class="mb">
-                ブレンドしたお米をご提供しています。<br>
-                冷めても固くならず、<br class="mb">
-                もちもちとした食感が続く<br class="mb">お弁当向けのお米など、<br>
-                用途に合わせたご提案が可能です。<br>
-                詳しくは、下記のメールアドレス、<br class="mb">
-                またはお電話にてお気軽に<br class="mb">お問い合わせください。
-            </p>
-            <dl class="inquiry__data">
-                <dt class="inquiry__tel">TEL:0566-21-1280</dt>
-                <dt class="inquiry__mail">ktaka802@katch.ne.jp</dt>
-            </dl>
+<div class="calendar">
+    <div class="calendar__inner">
+        <div class="calendar__frame">
+            <iframe src="https://calendar.google.com/calendar/embed?src=8fada9074125778093dbd812f36c5fe3f5c921d2b203166f294f7e55065998d9%40group.calendar.google.com&ctz=Asia%2FTokyo" style="border: 0" frameborder="0" scrolling="no"></iframe>
         </div>
-    </section>
+    </div>
+</div>
+
+    <section class="inquiry fadein">
+                    <div class="inquiry__inner">
+                        <p class="inquiry__text">
+                            飲食店様には、それぞれの料理に合うように<br class="mb">
+                            ブレンドしたお米をご提供しています。<br>
+                            冷めても固くならず、<br class="mb">
+                            もちもちとした食感が続く<br class="mb">お弁当向けのお米など、<br>
+                            用途に合わせたご提案が可能です。<br>
+                            詳しくは、下記のメールアドレス、<br class="mb">
+                            またはお電話にてお気軽に<br class="mb">お問い合わせください。
+                        </p>
+                        <div class="inquiry__data">
+                            <a href="tel:+810566-21-1280"  class="inquiry__tel">TEL:0566-21-1280</a>
+                            <a href="mailto:ktaka802@katch.ne.jp" class="inquiry__mail">ktaka802@katch.ne.jp</a>
+                        </div>
+                    </div>
+            </section>
 
 </main>
 

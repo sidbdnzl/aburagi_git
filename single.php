@@ -39,12 +39,12 @@
                             詳しくは、下記のメールアドレス、<br class="mb">
                             またはお電話にてお気軽に<br class="mb">お問い合わせください。
                         </p>
-                        <dl class="inquiry__data">
-                            <dt class="inquiry__tel">TEL:0566-21-1280</dt>
-                            <dt class="inquiry__mail">ktaka802@katch.ne.jp</dt>
-                        </dl>
+                        <div class="inquiry__data">
+                            <a href="tel:+810566-21-1280"  class="inquiry__tel">TEL:0566-21-1280</a>
+                            <a href="mailto:ktaka802@katch.ne.jp" class="inquiry__mail">ktaka802@katch.ne.jp</a>
+                        </div>
                     </div>
-                </section>
+            </section>
 </main>
 
 <?php get_footer(); ?>

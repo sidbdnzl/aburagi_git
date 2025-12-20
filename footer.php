@@ -13,7 +13,7 @@
                 </ul>
                 <ul class="footer__list">
                     <li class="footer__item"><a href="<?php echo home_url('/kome'); ?>">取り扱い銘柄</a></li>
-                    <li class="footer__item"><a href="<?php echo home_url('/store'); ?>">店舗情報</a></li>
+                    <li class="gnav__item2"><a href="<?php echo home_url('/'); ?>#store">店舗情報</a></li>
                 </ul>
             </div>
 
