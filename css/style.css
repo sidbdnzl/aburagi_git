@@ -8,7 +8,7 @@ body {
   color: #000;
   font-family: "Noto Serif JP", "Noto Serif", "Hiragino Mincho ProN", sans-serif;
   overflow-x: hidden;
-  background: url(../image/aburagi_Desktop_bg.webp) no-repeat center center/cover;
+  background: url(../image/bg.png) no-repeat center center/cover;
 }
 body.no-scroll {
   overflow: hidden;
@@ -101,6 +101,22 @@ img {
   .header__hamburger {
     display: none;
   }
+}
+
+.gnav__item2 a {
+  position: relative;
+  text-decoration: none;
+}
+
+.gnav__item2 a.is-current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+  /* サイトの色に合わせて調整 */
 }
 
 .gnav {
@@ -669,15 +685,18 @@ img {
 }
 
 .calendar__frame {
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
   aspect-ratio: 4/3;
 }
 
 .calendar__frame iframe {
-  width: 700px;
-  height: 600px;
+  width: 100%;
+}
+@media (width >= 760px) {
+  .calendar__frame iframe {
+    width: 700px;
+    height: 600px;
+  }
 }
 
 /* ---------- お知らせページ ----------*/

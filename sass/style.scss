@@ -52,7 +52,7 @@ body {
     color: $color-text;
     font-family: $font-family-base;
     overflow-x: hidden;
-    background: url(../image/aburagi_Desktop_bg.webp) no-repeat center center/cover;
+    background: url(../image/bg.png) no-repeat center center/cover;
 
     &.no-scroll {
         overflow: hidden;
@@ -149,6 +149,22 @@ img {
     @include mq(tablet) {
         display: none;
     }
+}
+
+.gnav__item2 a {
+    position: relative;
+    text-decoration: none;
+}
+
+.gnav__item2 a.is-current::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 1px;
+    background-color: #333;
+    /* サイトの色に合わせて調整 */
 }
 
 .gnav {
@@ -761,37 +777,18 @@ img {
 }
 
 .calendar__frame {
-    margin-left: auto;
-    margin-right: auto;
     width: 100%;
     aspect-ratio: 4 / 3;
 }
 
 .calendar__frame iframe {
-    width: 700px;
-    height: 600px;
+    width: 100%;
+
+    @include mq(tablet) {
+        width: 700px;
+        height: 600px;
+    }
 }
-
-// /* アスペクト比ボックス */
-// .calendar__frame {
-//     margin-left: auto;
-//     margin-right: auto;
-//     position: relative;
-//     width: 100%;
-//     padding-top: 75%;
-//     min-height: 400px; // ← これを追加
-//     /* 4:3 の比率 */
-// }
-
-// /* iframe を中で100%に広げる */
-// .calendar__frame iframe {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     border: 0;
-// }
 
 /* ---------- お知らせページ ----------*/
 .newspage {
