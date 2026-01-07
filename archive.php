@@ -10,19 +10,20 @@ get_header();
                 <p>News</p>
             </div>
 
+       <a href="<?php the_permalink(); ?>">
             <div class="newspage__list">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     <div class="newspage__post">
-                <dl class="newspage__date"><?php echo get_the_date('Y.m.d'); ?></dl>
+                <div class="newspage__date"><?php echo get_the_date('Y.m.d'); ?></div>
 
-                <dt class="newspage__text">
+                <div class="newspage__text">
                     <a href="<?php the_permalink(); ?>">
                         <?php the_title(); ?>
                     </a>
-                </dt>
+                </div>
             </div>
                 <?php endwhile; endif; ?>
-            </div>
+       </a>
 
             <div class="pagination">
                 <?php the_posts_pagination(); ?>

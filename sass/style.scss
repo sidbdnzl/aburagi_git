@@ -70,13 +70,45 @@ img {
     padding-bottom: 5px;
     display: block;
     width: fit-content;
-    border-bottom: 1px solid $color-text;
     margin-left: auto;
     margin-right: auto;
     font-weight: 600;
+    position: relative; // 線の基準
+    text-decoration: none;
+    color: $color-text;
+
+    // 1. 最初から見えているベースの線
+    border-bottom: 1px solid rgba($color-text, 0.2); // 薄く表示（または $color-text そのまま）
 
     @include mq(desktop) {
         margin: 0;
+    }
+
+    // 2. ホバーで動く濃い線
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -1px; // border-bottomと重ねるために調整
+        left: 0;
+        width: 0; // 最初は長さ0
+        height: 1px; // borderと同じ太さ
+        background-color: $color-text; // はっきりした色
+        transition: width 0.4s ease; // 動きの速度
+    }
+
+    // ホバー時に左から右へ
+    &:hover::after {
+        width: 100%;
+    }
+
+    // 白背景セクション用の設定
+    &.is-white {
+        color: #fff;
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+
+        &::after {
+            background-color: #fff;
+        }
     }
 }
 
@@ -151,22 +183,6 @@ img {
     }
 }
 
-.gnav__item2 a {
-    position: relative;
-    text-decoration: none;
-}
-
-.gnav__item2 a.is-current::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 1px;
-    background-color: #333;
-    /* サイトの色に合わせて調整 */
-}
-
 .gnav {
     position: fixed;
     top: 0;
@@ -194,13 +210,13 @@ img {
         margin-bottom: 2rem;
     }
 
-    &__item2 {
-        &:hover {
-            color: #666;
-            // border-bottom: 1px solid #555;
-            transition: all 0.5s ease;
-        }
-    }
+    // &__item2 {
+    //     &:hover {
+    //         color: #666;
+    //         // border-bottom: 1px solid #555;
+    //         transition: all 0.5s ease;
+    //     }
+    // }
 
     &__logo {
         margin: 35px 0 35px 0;
@@ -256,6 +272,82 @@ img {
             font-size: 14px;
         }
     }
+}
+
+/* ナビゲーションのリンクに対する設定 */
+.gnav__item2 a,
+.gnav__item a {
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    padding-bottom: 5px;
+    /* 線と文字の間隔 */
+}
+
+/* 線の初期状態（透明・長さ0） */
+.gnav__item2 a::after,
+.gnav__item a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    /* 最初は長さ0 */
+    height: 1px;
+    /* 線の太さ */
+    background-color: #333;
+    /* 線の色（サイトのデザインに合わせて変更してください） */
+    transition: width 0.3s ease;
+    /* 0.3秒かけて伸びる */
+}
+
+/* ホバー時の動き（左から右へ100%伸びる） */
+.gnav__item2 a:hover::after,
+.gnav__item a:hover::after {
+    width: 100%;
+}
+
+/* 現在のページの下線を表示 */
+.gnav__item2.is-active a::after,
+.gnav__item.is-active a::after {
+    width: 100%;
+    /* 最初から100%表示 */
+}
+
+/* (任意) 現在のページの文字色を少し変えたい場合 */
+.gnav__item2.is-active a,
+.gnav__item.is-active a {
+    color: #000;
+    /* お好みの色に */
+    font-weight: 600;
+    /* 少し太くするなど */
+}
+
+/* --- スクロールで白背景セクションに入った時の設定 --- */
+
+/* 文字色の変更 */
+.gnav__item2 a.is-white,
+.gnav__item a.is-white {
+    color: #fff !important;
+    /* 文字を白に */
+}
+
+/* 下線の色の変更（ホバー時・現在地） */
+.gnav__item2 a.is-white::after,
+.gnav__item a.is-white::after {
+    background-color: #fff;
+    /* 線を白に */
+}
+
+/* ロゴの反転（JSでis-whiteがつく場合） */
+.header__koubouimg.is-white {
+    filter: brightness(0) invert(1);
+    /* 黒いロゴを白に反転させる場合 */
+}
+
+/* ハンバーガーメニューの線の色（is-whiteがついた時） */
+#hamburger.is-white .bar {
+    background-color: #fff;
 }
 
 
@@ -323,10 +415,13 @@ img {
     }
 
     &__title {
-        margin-bottom: 5px;
         font-size: $font-size-base;
         font-weight: 600;
     }
+
+    // &__address {
+    //     gap: 20px;
+    // }
 
     &__logo {
         margin-bottom: 40px;
@@ -366,7 +461,9 @@ img {
     }
 
     &__text {
+        display: grid;
         margin: 40px 0 60px 0;
+        gap: 20px;
 
         @include mq(desktop) {
             margin-top: 0;
@@ -452,6 +549,41 @@ img {
     }
 
 
+}
+
+/* フッターのリンク共通設定 */
+.footer__item a {
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    padding-bottom: 3px;
+    /* 線との隙間 */
+}
+
+/* 下線の初期状態 */
+.footer__item a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    /* フッターは少し細めの線が綺麗です */
+    background-color: #333;
+    transition: width 0.3s ease;
+}
+
+/* ホバー時とアクティブ時（現在地）の挙動 */
+.footer__item a:hover::after,
+.footer__item.is-active a::after {
+    width: 100%;
+}
+
+.footer__item.is-active a {
+    color: #000;
+    /* お好みの色に */
+    font-weight: 600;
+    /* 少し太くするなど */
 }
 
 /*---------- お知らせ ----------*/

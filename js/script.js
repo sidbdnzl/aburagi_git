@@ -37,32 +37,28 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-    const gnavLinks = document.querySelectorAll(".gnav__list2 a");
+    // aタグ自体にクラスがつくようにJSが書かれているため、それを前提に調整します
+    const gnavLinks = document.querySelectorAll(".gnav__list2 a, .gnav__list a");
     const aburagi = document.querySelector(".aburagi");
-    const inquiry = document.querySelector(".inquiry"); // 追加！
+    const inquiry = document.querySelector(".inquiry");
     const koubouImg = document.querySelector(".header__koubouimg");
     const hamburger = document.querySelector("#hamburger");
 
     let ticking = false;
 
-    // セクション内かどうか判定する関数
     const isInSection = (section) => {
         if (!section) return false;
         const rect = section.getBoundingClientRect();
-        const scrollY = window.scrollY;
+        const triggerPoint = window.innerHeight * 0.1; // 画面上部10%の位置で判定
 
-        const top = scrollY + rect.top;
-        const bottom = scrollY + rect.bottom;
-        const triggerPoint = scrollY + window.innerHeight * 0.1;
-
-        return triggerPoint > top && triggerPoint < bottom;
+        // getBoundingClientRectは画面内での位置を返すので計算がシンプルになります
+        return rect.top < triggerPoint && rect.bottom > triggerPoint;
     };
 
     const onScroll = () => {
-        // aburagi か inquiry のどちらかに入っていたら白にする
         const inWhiteZone = isInSection(aburagi) || isInSection(inquiry);
 
-        // ナビリンク
+        // ナビリンク（aタグ）に is-white をつけ外し
         gnavLinks.forEach(link => link.classList.toggle("is-white", inWhiteZone));
 
         // ロゴ画像
@@ -80,4 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
             ticking = true;
         }
     });
+
+    // 初期状態チェック
+    onScroll();
 });

@@ -34,43 +34,25 @@
         <div class="header__menu">
             <nav class="gnav2">
                 <ul class="gnav__list2">
-                    <li class="gnav__item2">
-                        <a href="<?php echo home_url('/'); ?>"
-                        class="<?php if (is_front_page()) echo 'is-current'; ?>">
-                        HOME
-                        </a>
+                    <li class="gnav__item2 <?php if(is_front_page()) echo 'is-active'; ?>">
+                        <a href="<?php echo home_url('/'); ?>">HOME</a>
                     </li>
 
-                     <li class="gnav__item2">
-                        <a href="<?php echo home_url('/news'); ?>"
-                            class="<?php if (is_page('post')) echo 'is-current'; ?>">
-                            お知らせ
-                        </a>
+                    <li class="gnav__item2 <?php if((is_home() || is_single() || is_archive()) && !is_front_page()) echo 'is-active'; ?>">
+                        <a href="<?php echo home_url('/news'); ?>">お知らせ</a>
                     </li>
 
+                    <li class="gnav__item2 <?php if(is_page('seimai')) echo 'is-active'; ?>">
+                        <a href="<?php echo home_url('/seimai'); ?>">こだわりの精米</a>
+                    </li>
 
-                    <!-- <li class="gnav__item2">
-                        <a href="<?php echo home_url('/news'); ?>"
-                        class="<?php if (is_page('news')) echo 'is-current'; ?>">
-                        お知らせ
-                        </a>
-                    </li> -->
-
-                    <li class="gnav__item2">
-                        <a href="<?php echo home_url('/seimai'); ?>"
-                        class="<?php if (is_page('seimai')) echo 'is-current'; ?>">
-                        こだわりの精米
-                        </a>
+                    <li class="gnav__item2 <?php if(is_page('kome')) echo 'is-active'; ?>">
+                        <a href="<?php echo home_url('/kome'); ?>">取り扱い銘柄</a>
                     </li>
 
                     <li class="gnav__item2">
-                        <a href="<?php echo home_url('/kome'); ?>"
-                        class="<?php if (is_page('kome')) echo 'is-current'; ?>">
-                        取り扱い銘柄
-                        </a>
+                        <a href="<?php echo home_url('/'); ?>#store">店舗情報</a>
                     </li>
-
-                    <li class="gnav__item2"><a href="<?php echo home_url('/'); ?>#store">店舗情報</a></li>
                 </ul>
                 <!-- <ul class="gnav__list2">
                     <li class="gnav__item2"><a href="<?php echo home_url('/'); ?>">HOME</a></li>

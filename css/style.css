@@ -27,15 +27,38 @@ img {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  border-bottom: 1px solid #000;
   margin-left: auto;
   margin-right: auto;
   font-weight: 600;
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 @media (width >= 840px) {
   .btn {
     margin: 0;
   }
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  transition: width 0.4s ease;
+}
+.btn:hover::after {
+  width: 100%;
+}
+.btn.is-white {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+.btn.is-white::after {
+  background-color: #fff;
 }
 
 /*---------- header ----------*/
@@ -103,22 +126,6 @@ img {
   }
 }
 
-.gnav__item2 a {
-  position: relative;
-  text-decoration: none;
-}
-
-.gnav__item2 a.is-current::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 1px;
-  background-color: #333;
-  /* サイトの色に合わせて調整 */
-}
-
 .gnav {
   position: fixed;
   top: 0;
@@ -142,10 +149,6 @@ img {
   transition: 0.4s;
   display: block;
   margin-bottom: 2rem;
-}
-.gnav__item2:hover {
-  color: #666;
-  transition: all 0.5s ease;
 }
 .gnav__logo {
   margin: 35px 0 35px 0;
@@ -192,6 +195,81 @@ img {
          column-gap: 30px;
     font-size: 14px;
   }
+}
+
+/* ナビゲーションのリンクに対する設定 */
+.gnav__item2 a,
+.gnav__item a {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 5px;
+  /* 線と文字の間隔 */
+}
+
+/* 線の初期状態（透明・長さ0） */
+.gnav__item2 a::after,
+.gnav__item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  /* 最初は長さ0 */
+  height: 1px;
+  /* 線の太さ */
+  background-color: #333;
+  /* 線の色（サイトのデザインに合わせて変更してください） */
+  transition: width 0.3s ease;
+  /* 0.3秒かけて伸びる */
+}
+
+/* ホバー時の動き（左から右へ100%伸びる） */
+.gnav__item2 a:hover::after,
+.gnav__item a:hover::after {
+  width: 100%;
+}
+
+/* 現在のページの下線を表示 */
+.gnav__item2.is-active a::after,
+.gnav__item.is-active a::after {
+  width: 100%;
+  /* 最初から100%表示 */
+}
+
+/* (任意) 現在のページの文字色を少し変えたい場合 */
+.gnav__item2.is-active a,
+.gnav__item.is-active a {
+  color: #000;
+  /* お好みの色に */
+  font-weight: 600;
+  /* 少し太くするなど */
+}
+
+/* --- スクロールで白背景セクションに入った時の設定 --- */
+/* 文字色の変更 */
+.gnav__item2 a.is-white,
+.gnav__item a.is-white {
+  color: #fff !important;
+  /* 文字を白に */
+}
+
+/* 下線の色の変更（ホバー時・現在地） */
+.gnav__item2 a.is-white::after,
+.gnav__item a.is-white::after {
+  background-color: #fff;
+  /* 線を白に */
+}
+
+/* ロゴの反転（JSでis-whiteがつく場合） */
+.header__koubouimg.is-white {
+  filter: brightness(0) invert(1);
+  /* 黒いロゴを白に反転させる場合 */
+}
+
+/* ハンバーガーメニューの線の色（is-whiteがついた時） */
+#hamburger.is-white .bar {
+  background-color: #fff;
 }
 
 /*---------- お問い合わせ ----------*/
@@ -259,7 +337,6 @@ img {
   }
 }
 .footer__title {
-  margin-bottom: 5px;
   font-size: 16px;
   font-weight: 600;
 }
@@ -302,7 +379,9 @@ img {
   margin-bottom: 20px;
 }
 .footer__text {
+  display: grid;
   margin: 40px 0 60px 0;
+  gap: 20px;
 }
 @media (width >= 840px) {
   .footer__text {
@@ -385,6 +464,41 @@ img {
     align-items: flex-start;
     gap: 30px;
   }
+}
+
+/* フッターのリンク共通設定 */
+.footer__item a {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 3px;
+  /* 線との隙間 */
+}
+
+/* 下線の初期状態 */
+.footer__item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  /* フッターは少し細めの線が綺麗です */
+  background-color: #333;
+  transition: width 0.3s ease;
+}
+
+/* ホバー時とアクティブ時（現在地）の挙動 */
+.footer__item a:hover::after,
+.footer__item.is-active a::after {
+  width: 100%;
+}
+
+.footer__item.is-active a {
+  color: #000;
+  /* お好みの色に */
+  font-weight: 600;
+  /* 少し太くするなど */
 }
 
 /*---------- お知らせ ----------*/
