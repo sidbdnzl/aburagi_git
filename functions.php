@@ -12,12 +12,6 @@ function theme_scripts() {
     // 自作CSS
     wp_enqueue_style('main-style', get_template_directory_uri() . '/css/style.css', array(), '1.0');
 
-    // jQuery（WordPress同梱版）
-    wp_enqueue_script('jquery');
-
-    // Midnight.js
-    wp_enqueue_script('midnight', 'https://cdnjs.cloudflare.com/ajax/libs/midnight.js/1.0.2/midnight.jquery.min.js', array('jquery'), null, true);
-
     // Swiper JS
     wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js', array(), null, true);
 
@@ -49,6 +43,7 @@ add_filter('post_type_archive_link', function ($link, $post_type) {
   }
   return $link;
 }, 10, 2);
+
 
 function add_article_post_permalink($permalink)
 {

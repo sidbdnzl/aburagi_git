@@ -2,7 +2,7 @@
     <div class="footer__inner">
         <div class="footer__unit">
             <div class="footer__logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/image/main_logo.webp" alt="油木米精米所" width="93" height="259" decoding="async" fetchpriority="high">
+                <img src="<?php echo get_template_directory_uri(); ?>/image/main_logo.webp" loading="lazy" alt="油木米精米所" width="93" height="259" decoding="async" fetchpriority="high">
             </div>
 
             <div class="footer__nav">

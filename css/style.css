@@ -127,6 +127,10 @@ img {
   display: block;
   margin-bottom: 2rem;
 }
+.gnav__item2:hover {
+  color: #666;
+  transition: all 0.5s ease;
+}
 .gnav__logo {
   margin: 35px 0 35px 0;
 }
@@ -662,25 +666,18 @@ img {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  /* ← 中央揃え＋max-width */
 }
 
-/* アスペクト比ボックス */
 .calendar__frame {
-  position: relative;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
-  padding-top: 75%;
-  /* 4:3 の比率 */
+  aspect-ratio: 4/3;
 }
 
-/* iframe を中で100%に広げる */
 .calendar__frame iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+  width: 700px;
+  height: 600px;
 }
 
 /* ---------- お知らせページ ----------*/
@@ -1060,7 +1057,7 @@ img {
 .fadein {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease;
+  transition: all 0.4s ease;
 }
 
 .fadein.active {

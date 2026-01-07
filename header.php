@@ -26,8 +26,8 @@
     <div class="header__inner">
         <a href="<?php echo home_url('/'); ?>">
             <div class="header__logos">
-                <img src="<?php echo get_template_directory_uri(); ?>/image/aburagi_logo.webp" alt="米搗き工房のイラストロゴ" width="50" height="50" decoding="async" fetchpriority="high">
-                <img class="header__koubouimg" src="<?php echo get_template_directory_uri(); ?>/image/aburagi_logo_name.webp" alt="米搗き工房のロゴ" width="170" height="120" decoding="async" fetchpriority="high">
+                <img src="<?php echo get_template_directory_uri(); ?>/image/aburagi_logo.webp" loading="lazy" alt="米搗き工房のイラストロゴ" width="50" height="50" decoding="async" fetchpriority="high">
+                <img class="header__koubouimg" src="<?php echo get_template_directory_uri(); ?>/image/aburagi_logo_name.webp" loading="lazy" alt="米搗き工房のロゴ" width="170" height="120" decoding="async" fetchpriority="high">
             </div>
         </a>
 
@@ -57,7 +57,7 @@
                 </ul>
 
                 <ul class="gnav__shop">
-                    <img src="<?php echo get_template_directory_uri(); ?>/image/main_logo.webp" alt="お店のロゴ" class="gnav__logo" width="99" height="416" decoding="async">
+                    <img src="<?php echo get_template_directory_uri(); ?>/image/main_logo.webp" loading="lazy" alt="お店のロゴ" class="gnav__logo" width="99" height="416" decoding="async">
                     <div class="gnav__shoptext">
                         <p class="gnav__name">米搗き工房　油木米販売所</p>
                         <p class="gnav__address">〒448-0037　愛知県刈谷市高倉町4-612</p>

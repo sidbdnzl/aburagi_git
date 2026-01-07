@@ -178,6 +178,14 @@ img {
         margin-bottom: 2rem;
     }
 
+    &__item2 {
+        &:hover {
+            color: #666;
+            // border-bottom: 1px solid #555;
+            transition: all 0.5s ease;
+        }
+    }
+
     &__logo {
         margin: 35px 0 35px 0;
     }
@@ -223,6 +231,7 @@ img {
 
     .gnav__list2 {
         display: none;
+
 
         @include mq(tablet) {
             display: grid;
@@ -749,26 +758,40 @@ img {
 
 .calendar__inner {
     @include inner();
-    /* ← 中央揃え＋max-width */
 }
 
-/* アスペクト比ボックス */
 .calendar__frame {
-    position: relative;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
-    padding-top: 75%;
-    /* 4:3 の比率 */
+    aspect-ratio: 4 / 3;
 }
 
-/* iframe を中で100%に広げる */
 .calendar__frame iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
+    width: 700px;
+    height: 600px;
 }
+
+// /* アスペクト比ボックス */
+// .calendar__frame {
+//     margin-left: auto;
+//     margin-right: auto;
+//     position: relative;
+//     width: 100%;
+//     padding-top: 75%;
+//     min-height: 400px; // ← これを追加
+//     /* 4:3 の比率 */
+// }
+
+// /* iframe を中で100%に広げる */
+// .calendar__frame iframe {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     border: 0;
+// }
 
 /* ---------- お知らせページ ----------*/
 .newspage {
@@ -1177,7 +1200,7 @@ img {
 .fadein {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.6s ease;
+    transition: all 0.4s ease;
 }
 
 .fadein.active {
