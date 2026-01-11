@@ -5,7 +5,7 @@
     <section class="mainvisual ">
         <div class="mainvisual__inner fadein">
             <div class="mainvisual__logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/image/main_logo.webp" loading="lazy" alt="油木米精米所のロゴ" width="153" height="309" decoding="async" fetchpriority="high">
+                <img src="<?php echo get_template_directory_uri(); ?>/image/main_logo.webp" alt="油木米精米所のロゴ" width="153" height="309" decoding="async" fetchpriority="high">
             </div>
         </div>
     </section>
@@ -42,7 +42,7 @@
 
                 <?php if ( $news_query->have_posts() ) : ?>
                     <?php while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
-                        <div class="news__post">
+                        <article class="news__post">
                             <div class="news__date">
                                 <?php echo get_the_date('Y.m.d'); ?>
                              </div>
@@ -51,7 +51,7 @@
                                     <?php the_title(); ?>
                                 </a>
                             </div>
-                        </div>
+                        </article>
                     <?php endwhile; ?>
                 <?php else : ?>
                     <p>まだ投稿されていません。</p>
@@ -134,8 +134,8 @@
             </div>
             <div class="store__unit">
                 <div class="store__map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.2471836849595!2d136.995727!3d35.000517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60049d213808942b%3A0x69a2a167b7cb417f!2z5rK55pyo57Gz6LKp5aOy5omA!5e0!3m2!1sja!2sjp!4v1764826596647!5m2!1sja!2sjp"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe title="油木米精米所の地図" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.2471836849595!2d136.995727!3d35.000517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60049d213808942b%3A0x69a2a167b7cb417f!2z5rK55pyo57Gz6LKp5aOy5omA!5e0!3m2!1sja!2sjp!4v1764826596647!5m2!1sja!2sjp"
+                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="store__info">
                     <div class="info__list">
@@ -148,7 +148,7 @@
                             <dd class="info__desc">0566-21-1280</dd>
                         </dl>
                         <dl class="info__row">
-                            <dt class="info__term">FAX</dt>
+                            <dt class="info__term">mail</dt>
                             <dd class="info__desc">ktaka802@katch.ne.jp</dd>
                         </dl>
                         <dl class="info__row">
@@ -171,7 +171,8 @@
                 </div>
                 <div class="calendar">
                     <div class="calendar__frame">
-                        <iframe src="https://calendar.google.com/calendar/embed?src=8fada9074125778093dbd812f36c5fe3f5c921d2b203166f294f7e55065998d9%40group.calendar.google.com&ctz=Asia%2FTokyo"  width="600" height="500"frameborder="0" scrolling="no"></iframe>
+                        <iframe   title="営業日カレンダー"
+                         src="https://calendar.google.com/calendar/embed?src=8fada9074125778093dbd812f36c5fe3f5c921d2b203166f294f7e55065998d9%40group.calendar.google.com&ctz=Asia%2FTokyo"frameborder="0" scrolling="no"></iframe>
                     </div>
                 </div>
             </div>
@@ -192,7 +193,7 @@
                             またはお電話にてお気軽に<br class="mb">お問い合わせください。
                         </p>
                         <div class="inquiry__data">
-                            <a href="tel:+810566-21-1280"  class="inquiry__tel">TEL:0566-21-1280</a>
+                            <a href="tel:0566-21-1280"  class="inquiry__tel">TEL:0566-21-1280</a>
                             <a href="mailto:ktaka802@katch.ne.jp" class="inquiry__mail">ktaka802@katch.ne.jp</a>
                         </div>
                     </div>

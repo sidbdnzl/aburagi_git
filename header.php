@@ -4,11 +4,15 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?php bloginfo('description'); ?>">
 
-    <title>
-        <?php wp_title('|', true, 'right'); ?>
-        <?php bloginfo('name'); ?>
-    </title>
+    <meta property="og:title" content="<?php wp_title('|', true, 'right'); bloginfo('name'); ?>">
+    <meta property="og:description" content="<?php bloginfo('description'); ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo esc_url(home_url('/')); ?>">
+    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/image/ogp.webp">
+
+    <title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
 
     <!-- Reset + Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
@@ -54,21 +58,15 @@
                         <a href="<?php echo home_url('/'); ?>#store">店舗情報</a>
                     </li>
                 </ul>
-                <!-- <ul class="gnav__list2">
-                    <li class="gnav__item2"><a href="<?php echo home_url('/'); ?>">HOME</a></li>
-                    <li class="gnav__item2"><a href="<?php echo home_url('/news'); ?>">お知らせ</a></li>
-                    <li class="gnav__item2"><a href="<?php echo home_url('/seimai'); ?>">こだわりの精米</a></li>
-                    <li class="gnav__item2"><a href="<?php echo home_url('/kome'); ?>">取り扱い銘柄</a></li>
-                    <li class="gnav__item2"><a href="<?php echo home_url('/'); ?>#store">店舗情報</a></li>
-                </ul> -->
             </nav>
 
-            <button type="button" class="header__hamburger" id="hamburger" aria-label="メニューを開閉">
+            <button type="button" class="header__hamburger" id="hamburger" aria-expanded="false"
+            aria-controls="gnav" aria-label="メニューを開閉">
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
 
-            <nav class="gnav" id="menu">
+            <nav class="gnav" id="gnav">
                 <ul class="gnav__list">
                     <li class="gnav__item"><a href="<?php echo home_url('/'); ?>">HOME</a></li>
                     <li class="gnav__item"><a href="<?php echo home_url('/news'); ?>">お知らせ</a></li>
@@ -77,13 +75,13 @@
                     <li class="gnav__item"><a href="<?php echo home_url('/'); ?>#store">店舗情報</a></li>
                 </ul>
 
-                <ul class="gnav__shop">
+                <div class="gnav__shop">
                     <img src="<?php echo get_template_directory_uri(); ?>/image/main_logo.webp" loading="lazy" alt="お店のロゴ" class="gnav__logo" width="99" height="416" decoding="async">
                     <div class="gnav__shoptext">
                         <p class="gnav__name">米搗き工房　油木米販売所</p>
                         <p class="gnav__address">〒448-0037　愛知県刈谷市高倉町4-612</p>
                     </div>
-                </ul>
+                </div>
             </nav>
         </div>
     </div>

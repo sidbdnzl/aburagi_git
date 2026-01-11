@@ -1,13 +1,35 @@
+// window.addEventListener('DOMContentLoaded', () => {
+//     const hamburger = document.getElementById("hamburger");
+//     const menu = document.getElementById("menu");
+//     const body = document.body;
+
+//     hamburger.addEventListener("click", () => {
+//         hamburger.classList.toggle("is-active");
+//         menu.classList.toggle("is-active");
+//         // overlay.classList.toggle("is-active");
+//         body.classList.toggle("no-scroll");
+//     });
+
 window.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById("hamburger");
-    const menu = document.getElementById("menu");
+    const menu = document.getElementById("gnav"); // ← ここ重要
     const body = document.body;
 
+    if (!hamburger || !menu) return;
+
     hamburger.addEventListener("click", () => {
+        const expanded = hamburger.getAttribute("aria-expanded") === "true";
+
         hamburger.classList.toggle("is-active");
         menu.classList.toggle("is-active");
-        // overlay.classList.toggle("is-active");
         body.classList.toggle("no-scroll");
+
+        // ★ aria制御（検証対策）
+        hamburger.setAttribute("aria-expanded", String(!expanded));
+        hamburger.setAttribute(
+            "aria-label",
+            expanded ? "メニューを開く" : "メニューを閉じる"
+        );
     });
 
     const swiper = new Swiper(".mySwiper", {
@@ -15,26 +37,44 @@ window.addEventListener('DOMContentLoaded', () => {
         spaceBetween: 30,
         autoplay: true,
         loop: true,
-    })
-
-
+    });
 
     const fadeInElements = document.querySelectorAll('.fadein');
-
-    const options = {
-        threshold: 0.2
-    };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
             }
         });
-    }, options);
+    }, { threshold: 0.2 });
 
     fadeInElements.forEach(el => observer.observe(el));
 });
+
+const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 2,
+    spaceBetween: 30,
+    autoplay: true,
+    loop: true,
+})
+
+
+
+const fadeInElements = document.querySelectorAll('.fadein');
+
+const options = {
+    threshold: 0.2
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, options);
+
+fadeInElements.forEach(el => observer.observe(el));
 
 window.addEventListener("DOMContentLoaded", () => {
     // aタグ自体にクラスがつくようにJSが書かれているため、それを前提に調整します
