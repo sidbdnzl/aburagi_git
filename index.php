@@ -148,6 +148,10 @@
                             <dd class="info__desc">0566-21-1280</dd>
                         </dl>
                         <dl class="info__row">
+                            <dt class="info__term">FAX</dt>
+                            <dd class="info__desc">0566-24-0815</dd>
+                        </dl>
+                        <dl class="info__row">
                             <dt class="info__term">mail</dt>
                             <dd class="info__desc">ktaka802@katch.ne.jp</dd>
                         </dl>
