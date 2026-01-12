@@ -13,7 +13,7 @@
     <section class="aburagi " data-midnight="white">
         <div class="aburagi__inner fadein">
             <div class="aburagi__explanation">
-                <h2 class="aburagi__title">油木米精米所</h2>
+                <h2 class="aburagi__title">油木米販売所</h2>
                 <p class="aburagi__text">
                     米搗き工房は、お米の精米所です。<br>厳選した産地銘柄の玄米を、<br>循環式精米機という<br>昔ながらの精米法で丁寧に搗きあげ、<br>店頭にて販売しています。<br>店頭精米で使用する玄米は、<br>特別栽培米を選び、<br>人に優しいお米を<br>安心してお召し上がりいただけるように<br>販売しています。<br>毎日の食卓に、<br>精米したての新鮮なお米を、<br>お届けします。
                 </p>

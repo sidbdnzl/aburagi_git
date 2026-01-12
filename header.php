@@ -36,6 +36,49 @@
         </a>
 
         <div class="header__menu">
+
+            <button type="button"
+                class="header__hamburger"
+                id="hamburger"
+                aria-expanded="false"
+                aria-controls="gnav"
+                aria-label="メニューを開閉">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="gnav" id="gnav">
+                <ul class="gnav__list">
+                    <li class="gnav__item <?php if(is_front_page()) echo 'is-active'; ?>">
+                        <a href="<?php echo home_url('/'); ?>">HOME</a>
+                    </li>
+                    <li class="gnav__item <?php if((is_home() || is_single() || is_archive()) && !is_front_page()) echo 'is-active'; ?>">
+                        <a href="<?php echo home_url('/news'); ?>">お知らせ</a>
+                    </li>
+                    <li class="gnav__item <?php if(is_page('seimai')) echo 'is-active'; ?>">
+                        <a href="<?php echo home_url('/seimai'); ?>">こだわりの精米</a>
+                    </li>
+                    <li class="gnav__item <?php if(is_page('kome')) echo 'is-active'; ?>">
+                        <a href="<?php echo home_url('/kome'); ?>">取り扱い銘柄</a>
+                    </li>
+                    <li class="gnav__item">
+                        <a href="<?php echo home_url('/'); ?>#store">店舗情報</a>
+                    </li>
+                </ul>
+
+                <!-- SPだけで表示したい情報 -->
+                <div class="gnav__shop">
+                    <img src="<?php echo get_template_directory_uri(); ?>/image/main_logo.webp"
+                        alt="お店のロゴ" class="gnav__logo">
+                    <div class="gnav__shoptext">
+                        <p class="gnav__name">米搗き工房　油木米販売所</p>
+                        <p class="gnav__address">〒448-0037 愛知県刈谷市高倉町4-612</p>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- <div class="header__menu">
             <nav class="gnav2">
                 <ul class="gnav__list2">
                     <li class="gnav__item2 <?php if(is_front_page()) echo 'is-active'; ?>">
@@ -83,6 +126,6 @@
                     </div>
                 </div>
             </nav>
-        </div>
+        </div> -->
     </div>
 </header>

@@ -136,7 +136,6 @@ img {
   padding: 130px 0 80px 0;
   text-align: center;
   transform: translateX(100%);
-  transition: 0.7s;
   z-index: 1000;
   overflow-y: auto;
 }
@@ -151,6 +150,7 @@ img {
   margin-bottom: 2rem;
 }
 .gnav__logo {
+  width: 100px;
   margin: 35px 0 35px 0;
 }
 .gnav__name {
@@ -180,25 +180,35 @@ img {
 .gnav.is-active .gnav__item:nth-child(5) {
   transition-delay: 0.5s;
 }
-
-.gnav2 {
-  display: flex;
-}
-.gnav2 .gnav__list2 {
-  display: none;
-}
 @media (width >= 760px) {
-  .gnav2 .gnav__list2 {
+  .gnav {
+    position: static;
+    transform: none;
+    background: transparent;
+    padding: 0;
+    height: auto;
+  }
+  .gnav__list {
     display: grid;
     grid-auto-flow: column;
     -moz-column-gap: 30px;
          column-gap: 30px;
     font-size: 14px;
   }
+  .gnav__shop {
+    display: none;
+  }
+}
+@media (width >= 760px) {
+  .gnav__item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    margin-bottom: 0;
+  }
 }
 
 /* ナビゲーションのリンクに対する設定 */
-.gnav__item2 a,
 .gnav__item a {
   position: relative;
   text-decoration: none;
@@ -208,7 +218,6 @@ img {
 }
 
 /* 線の初期状態（透明・長さ0） */
-.gnav__item2 a::after,
 .gnav__item a::after {
   content: "";
   position: absolute;
@@ -225,20 +234,17 @@ img {
 }
 
 /* ホバー時の動き（左から右へ100%伸びる） */
-.gnav__item2 a:hover::after,
 .gnav__item a:hover::after {
   width: 100%;
 }
 
 /* 現在のページの下線を表示 */
-.gnav__item2.is-active a::after,
 .gnav__item.is-active a::after {
   width: 100%;
   /* 最初から100%表示 */
 }
 
 /* (任意) 現在のページの文字色を少し変えたい場合 */
-.gnav__item2.is-active a,
 .gnav__item.is-active a {
   color: #000;
   /* お好みの色に */
@@ -248,14 +254,12 @@ img {
 
 /* --- スクロールで白背景セクションに入った時の設定 --- */
 /* 文字色の変更 */
-.gnav__item2 a.is-white,
 .gnav__item a.is-white {
   color: #fff !important;
   /* 文字を白に */
 }
 
 /* 下線の色の変更（ホバー時・現在地） */
-.gnav__item2 a.is-white::after,
 .gnav__item a.is-white::after {
   background-color: #fff;
   /* 線を白に */
@@ -412,9 +416,11 @@ img {
 /*---------- 油木米精米所 ----------*/
 .aburagi {
   width: 100%;
-  height: 100vh;
+  min-height: 100svh;
   background: url(../image/aburagi_bg.webp) no-repeat 30% center/cover;
   color: #fff;
+  display: grid;
+  place-items: center;
 }
 .aburagi__inner {
   max-width: 1050px;
@@ -424,7 +430,6 @@ img {
 }
 .aburagi__title {
   margin-bottom: 20px;
-  padding-top: 150px;
   font-size: 20px;
   text-align: center;
   font-weight: 500;
@@ -439,7 +444,6 @@ img {
   }
 }
 .aburagi__text {
-  padding-bottom: 110px;
   font-size: 16px;
   text-align: center;
   line-height: 40px;
@@ -457,7 +461,6 @@ img {
 }
 @media (width >= 840px) {
   .aburagi__explanation {
-    padding-top: 280px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
@@ -805,10 +808,11 @@ img {
 
 .calendar__frame iframe {
   width: 100%;
+  height: 600px;
 }
 @media (width >= 760px) {
   .calendar__frame iframe {
-    width: 700px;
+    width: 100%;
     height: 600px;
   }
 }
