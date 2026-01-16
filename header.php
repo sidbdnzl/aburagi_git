@@ -6,13 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php bloginfo('description'); ?>">
 
-    <meta property="og:title" content="<?php wp_title('|', true, 'right'); bloginfo('name'); ?>">
-    <meta property="og:description" content="<?php bloginfo('description'); ?>">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="<?php echo esc_url(home_url('/')); ?>">
-    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/image/ogp.webp">
+    <?php
+        if ( is_singular() ) {
+            // 投稿・固定ページ
+            if ( has_excerpt() ) {
+                $ogp_description = get_the_excerpt();
+            } else {
+                $ogp_description = wp_trim_words(
+                    wp_strip_all_tags(
+                        get_post_field( 'post_content', get_queried_object_id() )
+                    ),
+                    80,
+                    '…'
+                );
+            }
+        } else {
+            // トップ・一覧ページ（必ず文字を入れる）
+            $ogp_description = get_bloginfo('description');
 
-    <title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
+            if ( empty($ogp_description) ) {
+                $ogp_description = '米搗き工房 油木米販売所｜おいしいお米を食卓へ';
+            }
+        }
+    ?>
+
+<meta property="og:title" content="<?php echo esc_attr( wp_get_document_title() ); ?>">
+<meta property="og:description" content="<?php echo esc_attr( $ogp_description ); ?>">
+<meta property="og:type" content="website">
+<meta property="og:url" content="<?php echo esc_url( get_permalink() ); ?>">
+<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/image/ogp.webp">
+
+    <title><?php echo esc_html( wp_get_document_title() ); ?></title>
+    <!-- <title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title> -->
 
     <!-- Reset + Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">

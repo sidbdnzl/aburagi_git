@@ -61,7 +61,7 @@
             </div>
         </div>
 
-            <a href="<?php echo get_category_link(get_cat_ID('お知らせ')); ?>" class="news__btn btn">
+            <a href="<?php echo home_url('/news'); ?>" class="news__btn btn">
                 お知らせ一覧
             </a>
     </div>
